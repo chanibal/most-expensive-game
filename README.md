@@ -1,7 +1,7 @@
 icon by: https://www.iconfinder.com/icons/185091/danger_death_delete_destroy_skull_streamline_icon#size=128
 https://bitbucket.org/RabbitB/fuzzy-logic/ ? 
 skyboxes by: sky5x one by RKD
-
+icon/2: https://pixabay.com/en/broken-cell-phone-cellular-72161/
 
 Fuzzy logic research
 --------------------

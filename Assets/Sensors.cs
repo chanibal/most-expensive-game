@@ -27,7 +27,7 @@ public class Sensors : MonoBehaviour {
 	public Gyroscope gyroscope;
 	public float rotationSum;
 
-	public float lerpFactor = 9;
+	public float lerpFactor = 1.2f;
 
 	public Text output;
 
@@ -113,13 +113,13 @@ public class Sensors : MonoBehaviour {
 		output.text = string.Format ("{0}\n{2:00.000}g\n{4:00.000}...{5:00.000}\n\n{1}\n{3:00.000}deg/sec\n{6:00.000}...{7:00.000}\n{8:00000}", 
 			accelerometer, gyroscope, CurrentAccel, CurrentGyro, accelHistory.Min(), accelHistory.Max(), gyroHistory.Min(), gyroHistory.Max(), rotationSum);
 
-		if (Input.touchCount > 0) {
-			gyroHistory.Clear ();
-			accelHistory.Clear ();
-			gyroHistorySoft.Clear ();
-			accelHistorySoft.Clear ();
-			rotationSum = 0;
-		}
+//		if (Input.touchCount > 0) {
+//			gyroHistory.Clear ();
+//			accelHistory.Clear ();
+//			gyroHistorySoft.Clear ();
+//			accelHistorySoft.Clear ();
+//			rotationSum = 0;
+//		}
 			
 	}
 
@@ -136,14 +136,14 @@ public class Sensors : MonoBehaviour {
 		GL.Begin(GL.LINES);
 		for (int i = 0; i < accelHistory.Count; i++) {
 			var mag = accelHistory [i];
-			GL.Vertex3(i * xscale, 0.51f, 1);
-			GL.Vertex3(i * xscale, 0.51f + mag/10, 1);
+			GL.Vertex3(i * xscale, 0.5f, 1);
+			GL.Vertex3(i * xscale, 0.5f + mag/10, 1);
 		}
 		for (int i = 1; i < accelHistorySoft.Count; i++) {
 			var mag1 = accelHistorySoft [i-1];
 			var mag2 = accelHistorySoft [i];
-			GL.Vertex3((i-1) * xscale, 0.51f + mag1/10, 1);
-			GL.Vertex3(i * xscale, 0.51f + mag2/10, 1);
+			GL.Vertex3((i-1) * xscale, 0.5f + mag1/10, 1);
+			GL.Vertex3(i * xscale, 0.5f + mag2/10, 1);
 		}
 		GL.End();
 
@@ -151,14 +151,14 @@ public class Sensors : MonoBehaviour {
 		matGyro.SetPass(0);
 		for (int i = 0; i < gyroHistory.Count; i++) {
 			var mag = gyroHistory [i];
-			GL.Vertex3(i * xscale, 0.49f, 1);
-			GL.Vertex3(i * xscale, 0.49f - mag/400, 1);
+			GL.Vertex3(i * xscale, 0.5f, 1);
+			GL.Vertex3(i * xscale, 0.5f - mag/400, 1);
 		}
 		for (int i = 1; i < gyroHistorySoft.Count; i++) {
 			var mag1 = gyroHistorySoft [i-1];
 			var mag2 = gyroHistorySoft [i];
-			GL.Vertex3((i-1) * xscale, 0.49f - mag1/400, 1);
-			GL.Vertex3(i * xscale, 0.49f - mag2/400, 1);
+			GL.Vertex3((i-1) * xscale, 0.5f - mag1/400, 1);
+			GL.Vertex3(i * xscale, 0.5f - mag2/400, 1);
 		}
 		GL.End();
 

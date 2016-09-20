@@ -1,0 +1,3 @@
+[submodule "Assets/ChanibaL/RandomGenerator"]
+	path = Assets/ChanibaL/RandomGenerator
+	url = https://github.com/chanibal/RandomGenerator.git
