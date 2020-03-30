@@ -18,7 +18,7 @@ Game released on 2016-09-20.
 Design docs
 -----------
 
-Design docs are a mess that is [available here](docs/design.html) ([source](docs/design.adoc), plantuml used for diagrams).  
+Design docs are a mess that is [available here](Docs/design.adoc).  
 Please note, that they were not implemented in full.
 
 

@@ -51,33 +51,8 @@ hit something
 survived
 :   after (hit something) and accelerometer stable 1G, gyroscope stable
 
+image::device-states.svg[render of device-states.puml]
 
-[plantuml, format=svg]
-....
-
-note "Gyro input: stable, low, high" as N1
-note "Accelerometer input: stable-0G, stable-1G, high, very high" as N2
-
-state "Resting" as resting
-state "In Hand" as in_hand
-state "In stable freefall" as freefall
-state "In rotating freefall" as freefall_rotating
-state "In throw" as in_throw
-state "Hit something" as hit
-state "Survived" as survived
-state "Hit something again" as hit_again
-
-[*] --> in_hand
-in_hand --> freefall : accel == stable-0G
-in_hand --> in_throw : accel > stable-1G
-in_throw --> freefall : accel < stable-1G
-freefall --> freefall_rotating : gyro == high
-in_throw --> hit : accel == very high
-hit --> survived : accel < high
-survived --> resting : accel == stable-1G
-survived --> hit_again : accel >= high
-
-....
 
 == sounds
 
